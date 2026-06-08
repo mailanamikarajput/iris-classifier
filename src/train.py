@@ -49,10 +49,15 @@ cm = confusion_matrix(y_pred,y_test)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm)
 disp.plot(cmap="Blues")
 
-output_dir = Path.cwd()
+#output_dir = Path.cwd()
+
+parent_dir = Path.cwd().parent
+output_dir = parent_dir / "outputs"
+
+output_dir.mkdir(exist_ok=True)
 
 # save the model 
-dump(model, output_dir.parent/"outputs/model.joblib")
+dump(model, output_dir/"model.joblib")
 
 # Save as PNG
 plt.savefig(output_dir.parent/"outputs/confusion_matrix.png", dpi=300, bbox_inches="tight")
