@@ -60,7 +60,7 @@ output_dir.mkdir(exist_ok=True)
 dump(model, output_dir/"model.joblib")
 
 # Save as PNG
-plt.savefig(output_dir.parent/"outputs/confusion_matrix.png", dpi=300, bbox_inches="tight")
+plt.savefig(output_dir/"confusion_matrix.png", dpi=300, bbox_inches="tight")
 
 # Optional: display on screen
 plt.show()
